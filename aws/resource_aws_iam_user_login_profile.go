@@ -59,10 +59,10 @@ func resourceAwsIamUserLoginProfile() *schema.Resource {
 // characters that are likely to satisfy any possible AWS password policy
 // (given sufficient length).
 func generatePassword(length int) string {
-	charset := `abcdefghijklmnopqrstuvwxyz
-ABCDEFGHIJKLMNOPQRSTUVWXYZ
-0123456789
-!@#$%^&*()_+-=[]{}|'`
+	charset := "abcdefghijklmnopqrstuvwxyz" +
+		"ABCDEFGHIJKLMNOPQRSTUVWXYZ" +
+		"0123456789" +
+		"!@#$%^&*()_+-=[]{}|'"
 
 	result := make([]byte, length)
 	charsetSize := big.NewInt(int64(len(charset)))
